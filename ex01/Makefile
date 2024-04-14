@@ -6,7 +6,7 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/14 15:57:35 by akeryan           #+#    #+#              #
-#    Updated: 2024/04/14 19:18:47 by akeryan          ###   ########.fr        #
+#    Updated: 2024/04/14 22:38:08 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,11 @@ CC = c++
 RM = rm -rf
 
 SRC_FILES = main.cpp	\
-			Contact.cpp
-INCLUDE_FILES = Contact.hpp
+			Contact.cpp	\
+			PhoneBook.cpp	\
+
+INCLUDE_FILES = Contact.hpp	\
+				PhoneBook.hpp
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC_FILES))
 

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:09:46 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 22:06:30 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/14 22:38:58 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ class PhoneBook {
 	Contact contacts[8];
 
 	public:
-		void setContact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret);
-		void setContact(Contact contact);
+		//void addContact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret);
+		void addContact(Contact contact);
+		void printContact(unsigned int index);
 };
 
 #endif

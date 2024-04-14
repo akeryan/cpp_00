@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:35:31 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 22:02:42 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/14 23:04:42 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@
 using namespace std;
 
 int main () {
-	//PhoneBook	book;
+	PhoneBook	book;
 	string		command;
 
 	while (1)
 	{
 		enterCommand(command);
 		if (command == "ADD")
-			addContact();
+			addContact(book);
+		else if (command == "SEARCH")
+			book.printContact(0);
 		else if (command == "EXIT")
 			break;
 	}
@@ -48,19 +50,41 @@ void enterCommand(string& cmd) {
 	}
 }
 
-void addContact(void) {
-	//string fName, lName, nName, dSecret, pNumber;
-
-	//string entries[5];
-	string callToAction[5] = {
-		"Please enter first name", 
-		"Please enter last name",
-		"please enter nickname",
-		"please enter phone number",
-		"please enter darkest secret"
+void addContact(PhoneBook& book) {
+	char	currentChar;
+	string	entries[5];
+	string	callToAction[5] = {
+		"first name", 
+		"last name",
+		"nickname",
+		"7-digit phone number",
+		"darkest secret"
 	};
 
 	for (int i = 0; i < 5; i++) {
-		cout << callToAction[i] << endl;
+		while (1) {
+			entries[i] = "";
+			cout << "Please enter " << callToAction[i] << endl;
+			while (cin.get(currentChar) && currentChar != '\n')
+				entries[i] += currentChar;
+			if (entries[i] == "")
+				cout << callToAction[i] << " cannot be an empty string" << endl;
+			else if (i == 3 && !isPhoneNumberValid(entries[i]))
+				cout << entries[i] << " is not a valid phone number" << endl; 
+			else
+				break ;
+		}
 	}
+	book.addContact(Contact(entries[0], entries[1], entries[2], entries[3], entries[4]));
+}
+
+bool isPhoneNumberValid(string phoneNumber)
+{
+	if (phoneNumber.empty() || phoneNumber.length() != 7)
+		return false;
+	for (size_t i = 0; i < phoneNumber.length(); i++) {
+		if (!isdigit(phoneNumber[i]))
+			return false;
+	}
+	return true;
 }

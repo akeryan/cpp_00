@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:10:30 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 22:04:01 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/14 22:34:45 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Contact {
 		const string& getDarkestSecret(void);
 		const string& getPhoneNumber(void);
 		Contact(void);
+		Contact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret);
 	private:
 		string	firstName;
 		string	lastName;

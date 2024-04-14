@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:15:19 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 20:10:17 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/14 22:36:21 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ Contact::Contact(void)
 	nickName = "";
 	darkestSecret = "";
 	phoneNumber = "";
+}
+
+Contact::Contact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret) {
+	setContact(firstName, lastName, nickName, phoneNumber, darkestSecret);
 }
 
 bool Contact::setContact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret) {
