@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:35:31 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 23:04:42 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/19 14:20:00 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int main () {
 		if (command == "ADD")
 			addContact(book);
 		else if (command == "SEARCH")
-			book.printContact(0);
+			//book.printAllContacts();
+			book.printAllContacts();
 		else if (command == "EXIT")
 			break;
 	}

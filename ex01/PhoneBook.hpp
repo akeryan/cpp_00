@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:09:46 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 22:38:58 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/19 13:54:29 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,19 @@
 using namespace std;
 
 class PhoneBook {
-	Contact contacts[8];
+	static const unsigned char contactsLimit = 8;
+	static const unsigned char columnWidth = 10;
+	unsigned char currentContactIndex;
+	Contact contacts[contactsLimit];
+
+	void printString(string str);
 
 	public:
+		PhoneBook(void);
 		//void addContact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret);
 		void addContact(Contact contact);
 		void printContact(unsigned int index);
+		void printAllContacts(void);
 };
 
 #endif
