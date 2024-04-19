@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:09:46 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/19 13:54:29 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/19 20:18:36 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 
 # include "Contact.hpp"
 
-using namespace std;
-
 class PhoneBook {
 	static const unsigned char contactsLimit = 8;
 	static const unsigned char columnWidth = 10;
 	unsigned char currentContactIndex;
 	Contact contacts[contactsLimit];
 
-	void printString(string str);
+	void printString(std::string str);
 
 	public:
 		PhoneBook(void);

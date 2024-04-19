@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 20:43:46 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 22:54:09 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/19 20:17:26 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 
 void enterCommand(std::string& cmd);
 void addContact(PhoneBook& book);
-bool isPhoneNumberValid(string phoneNumber);
+bool isPhoneNumberValid(std::string phoneNumber);
 
 #endif

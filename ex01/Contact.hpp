@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:10:30 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/19 13:06:05 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/19 20:19:31 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,28 @@
 
 # include <string>
 
-using namespace std;
-
 class Contact {
 	public:
-		bool setFirstName(string firstName);
-		bool setLastName(string lastName);
-		bool setNickName(string nickName);
-		bool setDarkestSecret(string darkestSecret);
-		bool setPhoneNumber(string phoneNumber);
-		bool setContact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret);
-		const string& getFirstName(void);
-		const string& getLastName(void);
-		const string& getNickName(void);
-		const string& getDarkestSecret(void);
-		const string& getPhoneNumber(void);
+		bool setFirstName(std::string firstName);
+		bool setLastName(std::string lastName);
+		bool setNickName(std::string nickName);
+		bool setDarkestSecret(std::string darkestSecret);
+		bool setPhoneNumber(std::string phoneNumber);
+		bool setContact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret);
+		const std::string& getFirstName(void);
+		const std::string& getLastName(void);
+		const std::string& getNickName(void);
+		const std::string& getDarkestSecret(void);
+		const std::string& getPhoneNumber(void);
 		Contact(void);
-		Contact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret);
+		Contact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret);
 	private:
-		string	firstName;
-		string	lastName;
-		string	nickName;
-		string	phoneNumber;
-		string	darkestSecret;
-		bool	isPhoneNumberValid(string phoneNumber);
+		std::string	firstName;
+		std::string	lastName;
+		std::string	nickName;
+		std::string	phoneNumber;
+		std::string	darkestSecret;
+		bool	isPhoneNumberValid(std::string phoneNumber);
 
 };
 

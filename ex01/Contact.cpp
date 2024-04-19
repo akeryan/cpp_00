@@ -6,15 +6,13 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:15:19 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 22:36:21 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/19 20:16:01 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include "Contact.hpp"
-
-using namespace std;
 
 Contact::Contact(void)
 {
@@ -25,19 +23,19 @@ Contact::Contact(void)
 	phoneNumber = "";
 }
 
-Contact::Contact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret) {
+Contact::Contact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret) {
 	setContact(firstName, lastName, nickName, phoneNumber, darkestSecret);
 }
 
-bool Contact::setContact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret) {
+bool Contact::setContact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret) {
 	if (firstName.empty() || lastName.empty() || nickName.empty() || phoneNumber.empty() || darkestSecret.empty())
 	{
-		cout << "Error: entry cannot be an empty string" << endl;
+		std::cout << "Error: entry cannot be an empty string" << std::endl;
 		return false;
 	}
 	if (!isPhoneNumberValid(phoneNumber))
 	{
-		cout << "Error: please enter a valid 7-digit phone number" << endl;
+		std::cout << "Error: please enter a valid 7-digit phone number" << std::endl;
 		return false;
 	}
 	setFirstName(firstName);
@@ -48,51 +46,51 @@ bool Contact::setContact(string firstName, string lastName, string nickName, str
 	return true;
 }
 
-bool Contact::setFirstName(string firstName) {
+bool Contact::setFirstName(std::string firstName) {
 	if (firstName.empty())
 		return false;
 	this->firstName = firstName;
 	return true;
 }
 
-const string& Contact::getFirstName(void) {
+const std::string& Contact::getFirstName(void) {
 	return firstName;
 }
 
-bool Contact::setLastName(string lastName) {
+bool Contact::setLastName(std::string lastName) {
 	if (lastName.empty())
 		return false;
 	this->lastName = lastName;
 	return true;
 }
 
-const string& Contact::getLastName(void) {
+const std::string& Contact::getLastName(void) {
 	return lastName;
 }
 
-bool Contact::setNickName(string nickName) {
+bool Contact::setNickName(std::string nickName) {
 	if (nickName.empty())
 		return false;
 	this->nickName = nickName;
 	return true;
 }
 
-const string& Contact::getNickName(void) {
+const std::string& Contact::getNickName(void) {
 	return nickName;
 }
 
-bool Contact::setDarkestSecret(string darkestSecret) {
+bool Contact::setDarkestSecret(std::string darkestSecret) {
 	if (darkestSecret.empty())
 		return false;
 	this->darkestSecret = darkestSecret;
 	return true;
 }
 
-const string& Contact::getDarkestSecret(void) {
+const std::string& Contact::getDarkestSecret(void) {
 	return darkestSecret;
 }
 
-bool Contact::setPhoneNumber(string phoneNumber) {
+bool Contact::setPhoneNumber(std::string phoneNumber) {
 
 	if (phoneNumber.empty() || !isPhoneNumberValid(phoneNumber))
 		return false;
@@ -100,11 +98,11 @@ bool Contact::setPhoneNumber(string phoneNumber) {
 	return true;
 }
 
-const string& Contact::getPhoneNumber(void) {
+const std::string& Contact::getPhoneNumber(void) {
 	return phoneNumber;
 }
 
-bool Contact::isPhoneNumberValid(string phoneNumber)
+bool Contact::isPhoneNumberValid(std::string phoneNumber)
 {
 	if (phoneNumber.empty() || phoneNumber.length() != 7)
 		return false;
