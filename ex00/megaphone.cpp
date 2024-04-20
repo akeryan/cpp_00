@@ -6,45 +6,43 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 20:25:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/14 14:46:04 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/20 14:16:54 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string trim(const std::string &str);
+std::string trim(const std::string &str);
 
 int main (int argc, char **argv)
 {
-	string	str;
+	std::string	str;
 	int			len;
 	int			flag = 0;
 
 	if (argc == 1)
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else {
 		for (int i = 1; i < argc; i++) {
-			str = trim(string(argv[i]));
+			str = trim(std::string(argv[i]));
 			if (!str.empty())
 			{
 				if (flag == 1)
-					cout << " ";
+					std::cout << " ";
 				len = str.length();
 				for (int j = 0; j < len; j++)
-					cout << (unsigned char)toupper(str[j]);
+					std::cout << (unsigned char)toupper(str[j]);
 				flag = 1;
 			}
 		}
 		if (flag == 1)
-			cout << endl;
+			std::cout << std::endl;
 	}
 	return 0;
 }
 
-string trim(const string &str)
+std::string trim(const std::string &str)
 {
 	int	start = 0;
 	int	end = str.length() - 1;				
