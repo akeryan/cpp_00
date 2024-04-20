@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:16:59 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/20 13:41:57 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/20 14:24:38 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ int	PhoneBook::printContact(int index)
 {
 	if (index < 0 || index >= contactsLimit) {
 		std::cout << "Error: index must be within [0 : " << PhoneBook::getContactsLimit() << ")" << std::endl;
+		return 0;
+	}
+	if (contacts[index].getFirstName() == "") {
+		std::cout << "The record under this index is empty" << std::endl;
 		return 0;
 	}
 	std::cout << contacts[index].getFirstName() << std::endl;
