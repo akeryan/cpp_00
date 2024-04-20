@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:16:59 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/19 20:43:16 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/20 13:41:57 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ PhoneBook::PhoneBook(void)
 	currentContactIndex = -1;
 }
 
+int	PhoneBook::getContactsLimit(void)
+{
+	return contactsLimit;
+}
+
 void PhoneBook::addContact(Contact contact) {
 	if (currentContactIndex < contactsLimit - 1)
 		currentContactIndex++;
@@ -27,34 +32,18 @@ void PhoneBook::addContact(Contact contact) {
 	contacts[currentContactIndex] = contact;
 }
 
-void PhoneBook::printContact(unsigned int index)
+int	PhoneBook::printContact(int index)
 {
-	std::string	str = "";
-	char		currentChar;
-	int			index;
-
-	while (1) {
-		std::cout << "Enter index between 0 and " << contactsLimit - 1 << std::endl;
-		while (std::cin.get(currentChar) && currentChar != '\n')
-			str += currentChar;
-		std::stringstream ss(str);
-		ss >> index;
-		if (index < 0 || index >= contactsLimit) {
-			ss.clear();
-			ss.str("");
-			index = 0;
-		} else {
-			if (contacts[index].getFirstName() == "")
-				std::cout << "This record is empty, try another index" << std::endl;
-			else
-				break ;
-		}
+	if (index < 0 || index >= contactsLimit) {
+		std::cout << "Error: index must be within [0 : " << PhoneBook::getContactsLimit() << ")" << std::endl;
+		return 0;
 	}
 	std::cout << contacts[index].getFirstName() << std::endl;
 	std::cout << contacts[index].getLastName() << std::endl;
 	std::cout << contacts[index].getNickName() << std::endl;
 	std::cout << contacts[index].getPhoneNumber() << std::endl;
 	std::cout << contacts[index].getDarkestSecret() << std::endl;
+	return 1;
 }
 
 void PhoneBook::printAllContacts(void)

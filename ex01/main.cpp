@@ -6,12 +6,13 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:35:31 by akeryan           #+#    #+#             */
-/*   Updated: 2024/04/19 20:20:08 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/04/20 14:08:47 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "include.hpp"
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
@@ -26,12 +27,34 @@ int main () {
 		if (command == "ADD")
 			addContact(book);
 		else if (command == "SEARCH") {
-			book.printAllContacts();
+			executeSearch(&book);
 		}
 		else if (command == "EXIT")
 			break;
 	}
 	return 0;
+}
+
+int	executeSearch(PhoneBook *book) {
+	std::string			str;
+	unsigned int		index = 0;
+	char				currentChar;
+
+	book->printAllContacts();
+	while (1) {
+		std::cout << "Enter index between 0 and " << book->getContactsLimit() - 1 << " or QUIT" << std::endl;
+		str = "";
+		while (std::cin.get(currentChar) && currentChar != '\n')
+			str += currentChar;
+		if (str == "QUIT")
+			break ;
+		std::stringstream	ss(str);
+		ss >> index;
+		if (index == 0 && str != "0")
+			continue ;
+		book->printContact(index);
+	}
+	return (0);
 }
 
 void enterCommand(std::string& cmd) {
